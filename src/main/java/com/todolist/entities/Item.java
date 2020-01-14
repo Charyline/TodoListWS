@@ -9,16 +9,22 @@ import javax.persistence.Id;
 public class Item {
 	
 	public Item() {
-		
+		checked = false;
 	}
 	
-	public Item(String value) {
+	public Item(String value, boolean checked) {
 		this.value = value;
+		this.checked = checked;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+
+	private String value;
+	
+	private Boolean checked;
 	
 	public Long getId() {
 		return id;
@@ -27,8 +33,6 @@ public class Item {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	private String value;
 	
 	public void setValue(String value) {
 		this.value = value;
@@ -37,4 +41,13 @@ public class Item {
 	public String getValue() {
 		return value;
 	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+	
 }
