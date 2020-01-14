@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.todolist.entities.Item;
@@ -26,7 +27,7 @@ public class ItemController {
 	}
 	
 	@PutMapping("/item")
-	public ResponseEntity createItem(Item item) {
+	public ResponseEntity createItem(@RequestBody Item item) {
 		
 		try {
 			itemService.saveItem(item);
@@ -38,7 +39,7 @@ public class ItemController {
 	}
 	
 	@PostMapping("/item")
-	public ResponseEntity updateItem(Item item) {
+	public ResponseEntity updateItem(@RequestBody Item item) {
 		
 		try {
 			itemService.saveItem(item);
@@ -50,7 +51,7 @@ public class ItemController {
 	}
 	
 	@DeleteMapping("/item/{id}")
-	public ResponseEntity updateItem(@PathVariable("id") Long itemId) {
+	public ResponseEntity deleteItem(@PathVariable("id") Long itemId) {
 		
 		try {
 			itemService.deleteItem(itemId);
