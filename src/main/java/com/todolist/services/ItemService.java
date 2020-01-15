@@ -30,8 +30,8 @@ public class ItemService {
 		return optionalItem.isPresent() ? optionalItem.get() : null;
 	}
 	
-	public void saveItem(Item item) {
-		itemRepository.save(item);
+	public Item saveItem(Item item) {
+		return itemRepository.save(item);
 	}
 
 	public void deleteItem(Long itemId) {
